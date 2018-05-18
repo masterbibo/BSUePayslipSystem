@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="dist/css/style.css">
+
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
@@ -76,7 +79,8 @@
             <span class="input-group-text"><i class="fa fa-list-ul"></i></span>
           </div>
           <select id="departmentid" name="departmentid" class="form-control dropdown">
-            <option value="">[Select Department]</option>  
+            <option value="">[Select Department]</option> 
+            <option value="1">1</option> 
 
         </select>
       </div>
@@ -87,7 +91,7 @@
           </div>
           <select id="positionid" name="positionid" class="form-control dropdown">
             <option value="">[Select Position]</option>  
-            
+            <option value="1">1</option> 
         </select>
       </div>
 
