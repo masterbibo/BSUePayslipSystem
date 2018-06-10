@@ -41,13 +41,18 @@ function _saveData($tablename,$tableColumns,$ColumnValues){
 
     if ($tablename != NULL){
         require_once("../config/config.php");
-        $result = mysql_query("INSERT INTO " . $tablename . 
-                     " ( " . $tableColumns . " ) 
-                     VALUES (" . $ColumnValues . " )") or die (mysql_error());
+
+        $query = "INSERT INTO " . $tablename . 
+        " ( " . $tableColumns . " ) 
+        VALUES (" . $ColumnValues . " )";
+
+        echo ($query);
+
+        $result = mysql_query($query) or die (mysql_error());
         
         if($result){
             $data['data'] = 1;
-            $data['count'] = mysql_num_rows($result);
+            $data['count'] = mysql_affected_rows();
             return $data;
         }
         else{

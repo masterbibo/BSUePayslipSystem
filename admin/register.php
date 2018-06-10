@@ -54,9 +54,11 @@
         $result = _saveData($tablename,$tablecolumns,$columvalues);
           
       if($result['data']) {
-            popUp("success","Added Successfully: " . $result['count']);
-            //header ('location:../signin.php');
+            //echo '<script>alert("Success! '. $result['count'] .'");</script>';
+            //popUp("success","Added Successfully: " . $result['count']);
+            header ('location:../signin.php');
       } else {
-            popUp("error","Problem in Adding New Record");
+            //popUp("error","Problem in Adding New Record");
+            echo '<script>alert("Problem in Adding New Record");</script>';
       }
 ?>
