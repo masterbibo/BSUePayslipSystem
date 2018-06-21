@@ -1,13 +1,9 @@
-
-<?php 
-include 'helpers/headertemplate.php';
-?>
-
+<?php include 'helpers/headertemplate.php'; ?>
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 
-      <form action="admin/register.php" method="post">
+      <form method="post">
      
      <div class="input-group mb-3">
           <div class="input-group-prepend">
@@ -118,13 +114,13 @@ include 'helpers/headertemplate.php';
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            <button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-primary btn-block btn-flat">Register</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
 
-      <div class="social-auth-links text-center">
+      <!-- <div class="social-auth-links text-center">
         <p>- OR -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fa fa-facebook mr-2"></i>
@@ -136,14 +132,73 @@ include 'helpers/headertemplate.php';
         </a>
       </div>
 
-      <a href="login.html" class="text-center">I already have a membership</a>
+      <a href="login.html" class="text-center">I already have a membership</a> -->
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
 <!-- /.register-box -->
+<?php include_once 'helpers/footertemplate.php'; ?>
+<?php
+if (ISSET($_POST["btnSubmit"])){
+  include 'helpers/helper.php';
+  include 'helpers/crud.php';
+        $roleid='1';
+        $idnumber=$_POST['idnumber'];
+        $password= md5($_POST['password']);
+        $firstname=$_POST['firstname'];
+        $middlename=$_POST['middlename'];
+        $lastname=$_POST['lastname'];
+        $birthdate=$_POST['birthdate'];
+        $gender=$_POST['gender'];
+        $departmentid=$_POST['departmentid'];
+        $positionid=$_POST['positionid'];
+        $address=$_POST['address'];
+        $contactnumber=$_POST['phonenumber'];
+        $emailadd=$_POST['emailadd'];
+        $createdby=$_POST['firstname'] . ' ' . $_POST['lastname'];
+        $createddate= date("Y-m-d H:i:s");
+  
+        $tablename = 'user';
+        $tablecolumns = 'roleid, 
+                        idnumber, 
+                        password, 
+                        firstname, 
+                        middlename, 
+                        lastname, 
+                        birthdate, 
+                        gender, 
+                        departmentid, 
+                        positionid, 
+                        address, 
+                        contactnumber, 
+                        emailadd, 
+                        createdby, 
+                        createddate';
+        $columvalues =  "'$roleid           ',
+                        '$idnumber         ',
+                        '$password         ',
+                        '$firstname        ',
+                        '$middlename       ',
+                        '$lastname         ',
+                        '$birthdate        ',
+                        '$gender           ',
+                        '$departmentid     ',
+                        '$positionid       ',
+                        '$address          ',
+                        '$contactnumber    ',
+                        '$emailadd         ',
+                        '$createdby        ',
+                        '$createddate      '
+                        ";
 
-
-<?php 
-include_once 'helpers/footertemplate.php';
+        $result = _saveData($tablename,$tablecolumns,$columvalues);
+          
+      if($result['data']) {
+        echo (popUp("success","Saved", "(" . $result['count'] . ") Record Saved!","signin.php"));
+        exit();
+      } else {  
+        echo (popUp("error","", "Problem in Adding New Record.",""));
+      }
+}
 ?>

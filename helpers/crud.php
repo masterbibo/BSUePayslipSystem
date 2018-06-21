@@ -2,12 +2,12 @@
 
 function _getAllData($tablename){
     if ($tablename != NULL){
-        require_once("config.php");
+        require_once("config/config.php");
         $result = mysql_query("SELECT * FROM " . $tablename)  or die (mysql_error());
 
         if($result){
-            $data['data'] = $result;
-            $data['count'] = mysql_num_rows($result);
+            $data['data'] = mysql_fetch_assoc($result);
+            $data['count'] = mysql_affected_rows();
             return $data;
         }
         else{
@@ -21,12 +21,12 @@ function _getAllData($tablename){
 
 function _getAllDataByParam($tablename,$param){
     if ($tablename != NULL){
-        require_once("config.php");
+        require_once("config/config.php");
         $result = mysql_query("SELECT * FROM " . $tablename . " WHERE " . $param)  or die (mysql_error());
 
         if($result){
-            $data['data'] = $result;
-            $data['count'] = mysql_num_rows($result);
+            $data['data'] = mysql_fetch_assoc($result);
+            $data['count'] =mysql_affected_rows();
             return $data;
         }
         else{
@@ -40,7 +40,7 @@ function _getAllDataByParam($tablename,$param){
 function _saveData($tablename,$tableColumns,$ColumnValues){
 
     if ($tablename != NULL){
-        require_once("../config/config.php");
+        require_once("config/config.php");
 
         $query = "INSERT INTO " . $tablename . 
         " ( " . $tableColumns . " ) 

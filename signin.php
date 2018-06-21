@@ -28,25 +28,25 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="admin/login.php" method="post">
+      <form method="post">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+            <span class="input-group-text"><i class="fa fa-user"></i></span>
           </div>
-          <input type="email" id="uName" name="uName" class="form-control" placeholder="Email">
+          <input type="text" id="uName" name="uName" class="form-control" placeholder="ID-Code" required>
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-key"></i></span>
           </div>
-          <input type="password" id="uPass" name="uPass" class="form-control" placeholder="Password">
+          <input type="password" id="uPass" name="uPass" class="form-control" placeholder="Password" required>
         </div>
 
         <div class="row">
           <!-- /.col -->
           <div class="col-4 pull-right">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-primary btn-block btn-flat">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
@@ -94,3 +94,26 @@
 </script>
 </body>
 </html>
+
+<?php 
+if (ISSET($_POST['btnSubmit'])){
+    session_start();
+    include 'helpers/helper.php';
+    include 'helpers/crud.php';
+
+    $username=$_POST['uName'];
+    $password=md5($_POST['uPass']);
+
+    $data = _getAllData('user');
+
+    if ($data != null && $data['count'] != 0){
+        $_SESSION["isLogin"] = $data['data'];
+        $fullname = $data['data']['lastname'] . ", " . $data['data']['firstname'];
+        echo (popUp("success","Authenticated", "Welcome! ". $fullname ,"index.php"));
+        exit();
+    }
+    else{
+        echo '<script>alert("Username/Password is incorrect!");</script>';
+    }
+  }
+?>
