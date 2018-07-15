@@ -55,6 +55,57 @@ $str .= '<script>$(document).ready(function(){ $("#'. $uniqID .'").modal("show")
 return $str;
 }
 
+function getRoleName($roleid){
+    if ($roleid != null) {
+        if ($roleid == 1) {
+            return 'Employee';
+        }
+        elseif ($roleid == 0) {
+            return 'Administrator';
+        }
+        else {
+            return 'Unknown Role';
+        }
+    }
+    else{
+        return 'Unknown Role';
+    }
+}
 
+function formatFullName($format,$firstname,$middlename,$lastname){
+    if ($format == 'fml') {
+        return $firstname . ' ' . $middlename . ' ' . $lastname;
+    }
+    else if ($format == 'lfm') {
+        return $lastname . ', ' . $firstname . ' ' . $middlename;
+    }
+    else {
+        return $firstname . ' ' . $middlename . ' ' . $lastname;
+    }
+}
+
+function getDepartmentName($departmentid){
+    if(file_exists('crud.php')){
+        include 'crud.php';
+    }
+   
+   $data = _getAllDataByParam('department','id = '. $departmentid);
+   if ($data != null && $data['count'] != 0){
+       return $data['departmentname'];
+   }
+   return 'No Department Assigned';
+}
+
+function getPositionName($positionid){
+    if(file_exists('crud.php')){
+        include 'crud.php';
+    }
+
+    $data = _getAllDataByParam('position','id = ' . $positionid);
+    if ($data != null && $data['count'] != 0){
+        return $data['positionname'];
+    }
+    return 'No Position Assigned';
+ }
 
 ?>

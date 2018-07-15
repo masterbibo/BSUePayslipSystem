@@ -7,7 +7,7 @@
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Batangas State University</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; <?php echo date("Y");?> <a href="#">Batangas State University</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -20,10 +20,22 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE -->
 <script src="dist/js/adminlte.js"></script>
+<!-- DataTables -->
+<script src="plugins/datatables/datatables.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/pages/dashboard3.js"></script>
+
+<!-- Custom Script-->
+
+<script>
+  $(document).ready( function () {    
+    $('.jqdatatable').DataTable();
+  });
+</script>
+
+
 </body>
 </html>
