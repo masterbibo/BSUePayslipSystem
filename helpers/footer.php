@@ -22,17 +22,21 @@
 <script src="dist/js/adminlte.js"></script>
 <!-- DataTables -->
 <script src="plugins/datatables/datatables.js"></script>
-
+<!-- datepicker -->
+<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
 <!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/pages/dashboard3.js"></script>
 
 <!-- Custom Script-->
-
 <script>
-  $(document).ready( function () {    
+  $(document).ready( function () {   
+    //datatable 
     $('.jqdatatable').DataTable();
+    //Date picker
+    $('#birthdate').datepicker();
+
   });
 </script>
 

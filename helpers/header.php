@@ -15,9 +15,13 @@ include('config/authenticate.php')
 <!-- datatables -->
 <link rel="stylesheet" href="plugins/datatables/datatables.css">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css"> -->
   <!-- IonIcons -->
   <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <!-- datepicker -->
+  <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.css">
   <!-- Google Font: Source Sans Pro -->
@@ -164,7 +168,7 @@ to get the desired effect
           <li class="nav-header">MISCELLANEOUS</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-cloud-upload"></i>
+              <i class="nav-icon fa fa-cloud"></i>
               <p>Backup and Restore</p>
             </a>
           </li>

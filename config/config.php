@@ -1,7 +1,7 @@
 <?php
 
 ////For Localhost: Enable This
-$databaseHost = 'localhost';
+$databaseHost = '127.0.0.1';
 $databaseName = 'bsuepayslip';
 $databaseUsername = 'root';
 $databasePassword = '';
@@ -12,15 +12,15 @@ $databasePassword = '';
 // $databaseUsername = 'u705273519_epays';
 // $databasePassword = 'Incorrect57';
 
- $conn = mysql_connect($databaseHost, $databaseUsername, $databasePassword);
+  $conn = mysql_connect($databaseHost, $databaseUsername, $databasePassword);
   if(!$conn)
-    {
+  {
 		die("Could not connect" . mysql_error());
 	}
 	
-  $db = mysql_select_db($databaseName,$conn);
+  $db = mysql_select_db($databaseName, $conn);
   if(!$db)
-    {
+  {
 		die("Could not select database" . mysql_error());
 	}
 ?>
