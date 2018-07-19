@@ -27,18 +27,23 @@ else{
 //  var_dump ($users_employee);
 ?>
 <!-- Main content -->
-
-<div class="content">
-    <div class="container-fluid">
-        <div class="card card-success">
-            <div class="card-header">
-                <span>Edit Employee</span>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?php 
-                        echo '
+<form method="post">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card card-success">
+                <div class="card-header">
+                    <span>Edit Employee&nbsp;<i class="fas fa-angle-double-right"></i>&nbsp;<strong><?php echo formatFullName('lfm',$empdataList['firstname'],$empdataList['middlename'],$empdataList['lastname']) .'</td>'; ?></strong></span>
+                    <div class="btn-group float-right">
+                        <button class="btn btn-primary btn-sm" id="btnUpdate" name="btnUpdate">Update</button>
+                        <a href="employeelist.php" class="btn btn-sm btn-default float-right" style="color: black;">Back</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <?php 
+                            echo '
+                <input type="hidden" id="_id" name="_id" value="'. $empdataList["id"] .'"/>
                 <label for="idnumber" class="label">ID Number</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -46,8 +51,8 @@ else{
                     </div>
                     <input type="text" id="idnumber" name="idnumber" value="'. $empdataList["idnumber"] .'" class="form-control" placeholder="ID Number" required /><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="firstname" class="label">Firstname</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -56,8 +61,8 @@ else{
                     </div>
                     <input type="text" id="firstname" name="firstname" value="'. $empdataList["firstname"] .'" class="form-control" placeholder="First Name" required /><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="middlename" class="label">Middlename</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -65,8 +70,8 @@ else{
                     </div>
                     <input type="text" id="middlename" name="middlename" value="'. $empdataList["middlename"] .'" class="form-control" placeholder="Middle Name">
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="lastname" class="label">Lastname</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -74,8 +79,8 @@ else{
                     </div>
                     <input type="text" id="lastname" name="lastname" value="'. $empdataList["lastname"] .'" class="form-control" placeholder="Last Name" required /><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="birthdate" class="label">Birthdate</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -83,8 +88,8 @@ else{
                     </div>
                     <input type="text" id="birthdate" autocomplete="off" value="'. date("Y-m-d",strtotime($empdataList["birthdate"])) .'" name="birthdate" class="form-control" placeholder="Birthdate" required /><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="gender" class="label">Gender</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -96,12 +101,12 @@ else{
                       <option '. (strpos($empdataList["gender"],"Female") !== 0 ? "selected" : "")  .' value="Female">Female</option>
                   </select><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        ?>
-                    </div>
-                    <div class="col-lg-6">
-                        <?php 
-                        //Load User Information
-                        echo '
+                            ?>
+                        </div>
+                        <div class="col-lg-6">
+                            <?php 
+                            //Load User Information
+                            echo '
                 <label for="departmentid" class="label">Department</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -112,8 +117,8 @@ else{
                       <option value="1" selected>1</option> 
                   </select><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="positionid" class="label">Position</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -125,8 +130,8 @@ else{
                   </select><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>
                 ';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="phonenumber" class="label">Phonenumber</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -134,8 +139,8 @@ else{
                     </div>
                     <input type="text" id="phonenumber" name="phonenumber" value="'. $empdataList["contactnumber"] .'" class="form-control" placeholder="Mobile Number" required /><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
-                        
-                        echo '
+                            
+                            echo '
                 <label for="emailadd" class="label">Email Address</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -144,7 +149,7 @@ else{
                     <input type="email" id="emailadd" name="emailadd" value="'. $empdataList["emailadd"] .'" class="form-control" placeholder="Email Address" required /><span class="bg-danger col-valign-center">&nbsp;</span>
                 </div>';
 
-                        echo '
+                            echo '
                 <label for="address" class="label">Address</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -153,80 +158,59 @@ else{
                     <textarea id="address" name="address" class="textarea form-control" cols="1" rows="5" placeholder="Home Address">'. $empdataList["address"] .'</textarea>
                 </div>';     
 
-                        ?>
+                            ?>
+                        </div>
                     </div>
                 </div>
-
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
+            <!-- /.card -->
         </div>
-        <!-- /.card -->
     </div>
-</div>
-
+</form>
 <?php include 'helpers/footer.php'; ?>
 <?php 
 //===SAVE NEW EMPLOYEE=====
-// 
-//if (ISSET($_POST["btnSubmit"])){
-//   $roleid='1';
-//   $idnumber=$_POST['idnumber'];
-//   //Passwordformat: idnumber + lastname + birthdate(mmddyy)
-//   $password= md5($_POST['lastname'] . $_POST['idnumber']);
-//   $firstname=$_POST['firstname'];
-//   $middlename=$_POST['middlename'];
-//   $lastname=$_POST['lastname'];
-//   $birthdate=$_POST['birthdate'];
-//   $gender=$_POST['gender'];
-//   $departmentid=$_POST['departmentid'];
-//   $positionid=$_POST['positionid'];
-//   $address=$_POST['address'];
-//   $contactnumber=$_POST['phonenumber'];
-//   $emailadd=$_POST['emailadd'];
-//   $createdby= formatFullName('fml',$_POST['firstname'],$_POST['middlename'],$_POST['lastname']);
-//   $createddate= date("Y-m-d H:i:s");
-//   $isactive = 1;
 
-//   $tablename = 'user';
-//   $tablecolumns = 'roleid, 
-//                   idnumber, 
-//                   password, 
-//                   firstname, 
-//                   middlename, 
-//                   lastname, 
-//                   birthdate, 
-//                   gender, 
-//                   departmentid, 
-//                   positionid, 
-//                   address, 
-//                   contactnumber, 
-//                   emailadd, 
-//                   createdby, 
-//                   createddate';
-//   $columvalues =  "'$roleid           ',
-//                   '$idnumber         ',
-//                   '$password         ',
-//                   '$firstname        ',
-//                   '$middlename       ',
-//                   '$lastname         ',
-//                   '$birthdate        ',
-//                   '$gender           ',
-//                   '$departmentid     ',
-//                   '$positionid       ',
-//                   '$address          ',
-//                   '$contactnumber    ',
-//                   '$emailadd         ',
-//                   '$createdby        ',
-//                   '$createddate      '
-//                   ";
+if (ISSET($_POST["btnUpdate"])){
+    $_id=$_POST['_id'];
+    $idnumber=$_POST['idnumber'];
+    $firstname=$_POST['firstname'];
+    $middlename=$_POST['middlename'];
+    $lastname=$_POST['lastname'];
+    $birthdate=date("Y-m-d",strtotime($_POST['birthdate']));
+    $gender=$_POST['gender'];
+    $departmentid=$_POST['departmentid'];
+    $positionid=$_POST['positionid'];
+    $address=$_POST['address'];
+    $contactnumber=$_POST['phonenumber'];
+    $emailadd=$_POST['emailadd'];
+    $modifiedby= formatFullName('fml',$_POST['firstname'],$_POST['middlename'],$_POST['lastname']);
+    $modifieddate= date("Y-m-d H:i:s");   
 
-//   $result = _saveData($tablename,$tablecolumns,$columvalues);
-// if($result['data']) { 
-//   echo (popUp("success","Saved", "(" . $result['count'] . ") Record Saved!","employeelist.php"));
-// } else {  
-//   echo (popUp("error","", "Problem in Adding New Record.",""));
-// }
-// }
+    $tablename = 'user';
+    $columvalues =  "idnumber='$idnumber',
+                   firstname='$firstname',
+                   middlename='$middlename',
+                   lastname='$lastname',
+                   birthdate='$birthdate',
+                   gender='$gender',
+                   departmentid='$departmentid',
+                   positionid='$positionid',
+                   address='$address',
+                   contactnumber='$contactnumber',
+                   emailadd='$emailadd',
+                   modifiedby='$modifiedby',
+                   modifieddate='$modifieddate'";
+    $filter= "id='$_id'";
+
+    $result = _updateData($tablename,$columvalues,$filter);
+    if($result['data']) { 
+        echo (popUp("success","Updated!", "(" . $result['count'] . ") Record Updated!","employeelist.php"));
+    } else {  
+        echo (popUp("error","", "Problem in Adding New Record.",""));
+    }
+}
 
 // //===EDIT EMPLOYEE=====
 

@@ -178,21 +178,21 @@ if (ISSET($_POST["btnSubmit"])){
                         emailadd, 
                         createdby, 
                         createddate';
-        $columvalues =  "'$roleid           ',
-                        '$idnumber         ',
-                        '$password         ',
-                        '$firstname        ',
-                        '$middlename       ',
-                        '$lastname         ',
-                        '$birthdate        ',
-                        '$gender           ',
-                        '$departmentid     ',
-                        '$positionid       ',
-                        '$address          ',
-                        '$contactnumber    ',
-                        '$emailadd         ',
-                        '$createdby        ',
-                        '$createddate      '
+        $columvalues =  "'$roleid',
+                        '$idnumber',
+                        '$password',
+                        '$firstname',
+                        '$middlename',
+                        '$lastname',
+                        '$birthdate',
+                        '$gender',
+                        '$departmentid',
+                        '$positionid',
+                        '$address',
+                        '$contactnumber',
+                        '$emailadd',
+                        '$createdby',
+                        '$createddate'
                         ";
 
         $result = _saveData($tablename,$tablecolumns,$columvalues);

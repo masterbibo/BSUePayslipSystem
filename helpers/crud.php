@@ -72,6 +72,30 @@ function _saveData($tablename,$tableColumns,$ColumnValues){
             $data['count'] = 0;
             return $data;
         }
+    }    
+}
+
+function _updateData($tablename,$ColumnValues,$param){
+
+    if ($tablename != NULL){
+        require_once('config/fix_mysql.inc.php');
+        require_once("config/config.php");
+
+        $query = "UPDATE " . $tablename . " SET " . $ColumnValues . " WHERE " . $param;
+
+        //echo ($query);
+        $result = mysql_query($query) or die (mysql_error());
+        
+        if($result){
+            $data['data'] = $result;
+            $data['count'] = mysql_affected_rows();
+            return $data;
+        }
+        else{
+            $data['data'] = $result;
+            $data['count'] = 0;
+            return $data;
+        }
     }
     
 }

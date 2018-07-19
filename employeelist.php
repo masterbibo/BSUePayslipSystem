@@ -22,7 +22,7 @@
       <div class="container-fluid">
         <div class="card card-success">
               <div class="card-header">
-              <button type="button" class="btn btn-sm btn-default pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Employee</button>
+              <button type="button" class="btn btn-sm btn-default float-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add Employee</button>
               </div>
               <div class="card-body">
                 <table class="table table-responsive table-bordered table-striped table-hover table-condensed jqdatatable">
@@ -235,21 +235,21 @@ if (ISSET($_POST["btnSubmit"])){
                   emailadd, 
                   createdby, 
                   createddate';
-  $columvalues =  "'$roleid           ',
-                  '$idnumber         ',
-                  '$password         ',
-                  '$firstname        ',
-                  '$middlename       ',
-                  '$lastname         ',
-                  '$birthdate        ',
-                  '$gender           ',
-                  '$departmentid     ',
-                  '$positionid       ',
-                  '$address          ',
-                  '$contactnumber    ',
-                  '$emailadd         ',
-                  '$createdby        ',
-                  '$createddate      '
+  $columvalues =  "'$roleid',
+                  '$idnumber',
+                  '$password',
+                  '$firstname',
+                  '$middlename',
+                  '$lastname',
+                  '$birthdate',
+                  '$gender',
+                  '$departmentid',
+                  '$positionid',
+                  '$address',
+                  '$contactnumber',
+                  '$emailadd',
+                  '$createdby',
+                  '$createddate'
                   ";
 
   $result = _saveData($tablename,$tablecolumns,$columvalues);
