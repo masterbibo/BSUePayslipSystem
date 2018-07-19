@@ -76,7 +76,7 @@
                       echo '<td>'. $row['createddate'] .'</td>';
                       echo '</tr>';
                     }
-                  }
+                  } 
                   ?>
                   </tbody>
                 </table>
