@@ -33,3 +33,15 @@
     }
   }
   /* BOOTSTRAP MODAL MIDDLE */
+
+
+  
+  .col-valign-top {
+    vertical-align: top;
+  }
+  .col-valign-center {
+    vertical-align: middle;
+  }
+  .col-valign-bottom {
+    vertical-align: bottom;
+  }
