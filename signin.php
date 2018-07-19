@@ -101,14 +101,16 @@ if (ISSET($_POST['btnSubmit'])){
     include 'helpers/helper.php';
     include 'helpers/crud.php';
 
-    $username=$_POST['uName'];
+    $idnumber=$_POST['uName'];
     $password=md5($_POST['uPass']);
+   
 
-    $data = _getAllData('user');
+    $data = _getAllDataByParam('user','idnumber="' . $idnumber . '" and password="' . $password . "\"");
+    //var_dump($data['data']);
 
     if ($data != null && $data['count'] != 0){
-        $_SESSION["isLogin"] = $data['data'];
-        $fullname = $data['data']['lastname'] . ", " . $data['data']['firstname'];
+        $_SESSION["isLogin"] = $data['data'][0];
+        $fullname = $data['data'][0]['lastname'] . ", " . $data['data'][0]['firstname'];
         echo (popUp("success","Authenticated", "Welcome! ". $fullname ,"index.php"));
         exit();
     }

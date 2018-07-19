@@ -12,7 +12,7 @@
         var_dump($users_employee);
         $empdataList = array(); // empty array
         if ($users_employee != null && $users_employee['count'] != 0){       
-            $empdataList = $users_employee['data'];
+            $empdataList = $users_employee['data'][0];
         }
         else{
             $empdataList = null;
@@ -36,8 +36,9 @@
               <div class="card-body">
                 <?php 
                 //Load User Information
+                
                     echo '
-                    <div class="input-group mb-3">
+                <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
